@@ -1,5 +1,6 @@
 # printf
-Because putnbr and putstr aren’t enough
+Write a library that contains ft_printf, a function
+that will mimic the real printf
 
 ## Summary 
 
