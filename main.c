@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:03:34 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/28 15:10:11 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:26:22 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 
 int	main(void)
 {
-	assert(ft_printf("Hello World!\n") == printf("Hello World!\n"));
 	assert(ft_printf("") == printf(""));
 	assert(ft_printf(NULL) == printf(NULL));
-	assert(ft_printf("%c", 'a') == printf("%c", 'a'));
+	assert(ft_printf("Hello World%c\n", '!') == printf("Hello World%c\n", '!'));
 	printf("all tests passed");
 	return (0);
 }
