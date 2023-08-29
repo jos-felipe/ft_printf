@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/28 15:02:53 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/29 10:12:17 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_parse(const char *str, va_list ap)
 	offset = 0;
 	if (*str == 'c')
 		offset = ft_putchar(va_arg(ap, int));
-	// else if (*str == 's')
-	// 	ft_putstr(va_arg(ap, char *));
+	else if (*str == 's')
+		offset = ft_putstr(va_arg(ap, char *));
 	// else if (str[i] == 'p')
 	// 	ft_putptr(va_arg(ap, void *));
 	// else if (str[i] == 'd' || str[i] == 'i')
@@ -38,14 +38,14 @@ int	ft_parse(const char *str, va_list ap)
 
 int	ft_printf(const char *str, ...)
 {
-	int	count;
+	int	printed;
 	int	offset;
 	va_list	ap;
 
 	if (!str)
 		return (-1);
 	va_start(ap, str);
-	count = 0;
+	printed = 0;
 	offset = 0;
 	while (*str)
 	{
@@ -53,8 +53,9 @@ int	ft_printf(const char *str, ...)
 			offset = ft_parse(++str, ap);
 		else
 			offset = ft_putchar(*str);
-		count += offset;
-		str += offset;
+		printed += offset;
+		str++;
 	}
-	return (count);
+	va_end(ap);
+	return (printed);
 }
