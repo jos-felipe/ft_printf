@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/29 14:37:55 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/29 15:14:08 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,18 @@ int	ft_putnbr(int n)
 	}
 	return (offset);
 }
+
+int	ft_putunbr(unsigned int nbr)
+{
+	int			offset;
+
+	offset = 0;
+	if (nbr < 10)
+		offset += ft_putchar(nbr + '0');
+	else
+	{
+		offset += ft_putnbr(nbr / 10);
+		offset += ft_putnbr(nbr % 10);
+	}
+	return (offset);
+}	
