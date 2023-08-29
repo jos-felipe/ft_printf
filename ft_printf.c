@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/29 10:12:17 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:39:46 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	ft_parse(const char *str, va_list ap)
 		offset = ft_putchar(va_arg(ap, int));
 	else if (*str == 's')
 		offset = ft_putstr(va_arg(ap, char *));
+	else if (*str == 'd' || *str == 'i')
+		offset = ft_putnbr(va_arg(ap, int));
 	// else if (str[i] == 'p')
 	// 	ft_putptr(va_arg(ap, void *));
-	// else if (str[i] == 'd' || str[i] == 'i')
-	// 	ft_putnbr(va_arg(ap, int));
 	// else if (str[i] == 'u')
 	// 	ft_putunbr(va_arg(ap, unsigned int));
 	// else if (str[i] == 'x')
@@ -38,8 +38,8 @@ int	ft_parse(const char *str, va_list ap)
 
 int	ft_printf(const char *str, ...)
 {
-	int	printed;
-	int	offset;
+	int		printed;
+	int		offset;
 	va_list	ap;
 
 	if (!str)
