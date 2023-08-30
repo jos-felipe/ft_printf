@@ -3,5 +3,5 @@ ft_printf.c
 ft_printf_utils.c
 ft_printf_bonus.c
 ft_printf_utils_bonus.c
-libftprintf.h
-libftprintf_bonus.h
+ft_printf.h
+ft_printf_bonus.h
