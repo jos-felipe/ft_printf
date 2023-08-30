@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/30 11:09:04 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/30 12:34:42 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	ft_putunbr(unsigned int nbr)
 	return (offset);
 }
 
-int	ft_puthex(unsigned int hex, int case_flag)
+int	ft_puthex(unsigned long int hex, int case_flag)
 {
 	int	offset;
 
@@ -86,5 +86,15 @@ int	ft_puthex(unsigned int hex, int case_flag)
 		offset += ft_puthex(hex / 16, case_flag);
 		offset += ft_puthex(hex % 16, case_flag);
 	}
+	return (offset);
+}
+
+int	ft_putptr(void *ptr)
+{
+	int	offset;
+
+	offset = 0;
+	offset += ft_putstr("0x");
+	offset += ft_puthex((unsigned long int)ptr, 0);
 	return (offset);
 }
