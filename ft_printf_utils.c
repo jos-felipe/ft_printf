@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/29 15:14:08 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:09:04 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_putchar(char c)
 {
 	write(1, &c, sizeof(char));
-	return (sizeof(char));
+	return (1);
 }
 
 int	ft_putstr(char *str)
@@ -54,15 +54,37 @@ int	ft_putnbr(int n)
 
 int	ft_putunbr(unsigned int nbr)
 {
-	int			offset;
+	int	offset;
 
 	offset = 0;
 	if (nbr < 10)
 		offset += ft_putchar(nbr + '0');
 	else
 	{
-		offset += ft_putnbr(nbr / 10);
-		offset += ft_putnbr(nbr % 10);
+		offset += ft_putunbr(nbr / 10);
+		offset += ft_putunbr(nbr % 10);
 	}
 	return (offset);
-}	
+}
+
+int	ft_puthex(unsigned int hex, int case_flag)
+{
+	int	offset;
+
+	offset = 0;
+	if (hex < 16)
+	{
+		if (hex < 10)
+			offset += ft_putchar(hex + '0');
+		else if (case_flag)
+			offset += ft_putchar(hex - 10 + 'A');
+		else
+			offset += ft_putchar(hex - 10 + 'a');
+	}
+	else
+	{
+		offset += ft_puthex(hex / 16, case_flag);
+		offset += ft_puthex(hex % 16, case_flag);
+	}
+	return (offset);
+}

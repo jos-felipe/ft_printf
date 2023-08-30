@@ -28,4 +28,5 @@ You will mainly learn how to use variadic arguments.
 > - `%i` print an integer in base 10.
 > - `%u` print an unsigned decimal (base 10) number.
 > - `%x` print a number in hexadecimal (base 16).
+> - `%X` print a number in upper case hexadecimal (base 16).
 > - `%%` print a percent sign.</i>

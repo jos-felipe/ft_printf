@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/29 15:04:48 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:48:17 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int	ft_parse(const char *str, va_list ap)
 		offset = ft_putnbr(va_arg(ap, int));
 	else if (*str == 'u')
 		offset = ft_putunbr(va_arg(ap, unsigned int));
+	else if (*str == 'x')
+		offset = ft_puthex(va_arg(ap, unsigned int), 0);
+	else if (*str == 'X')
+		offset = ft_puthex(va_arg(ap, unsigned int), 1);
 	// else if (str == 'p')
 	// 	ft_putptr(va_arg(ap, void *));
-	// else if (str == 'x')
-	// 	ft_puthex(va_arg(ap, unsigned int), 0);
-	// else if (str == 'X')
-	// 	ft_puthex(va_arg(ap, unsigned int), 1);
 	// else if (str == '%')
 	// 	ft_putchar('%');
 	return (offset);

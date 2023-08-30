@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:03:34 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/29 15:00:29 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:44:20 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(void)
 	assert(ft_printf("%s%c\n", str, c) == printf("%s%c\n", str, c));
 	assert(ft_printf("%i | %d\n", nbr, -nbr) == printf("%i | %d\n", nbr, -nbr));
 	assert(ft_printf("%u | %u\n", nbr, -nbr) == printf("%u | %u\n", nbr, -nbr));
+	assert(ft_printf("%x | %X\n", nbr, nbr) == printf("%x | %X\n", nbr, nbr));
 	printf("all tests passed\n");
 	return (0);
 }
