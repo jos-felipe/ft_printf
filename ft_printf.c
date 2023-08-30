@@ -6,11 +6,26 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/30 14:20:25 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:28:17 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_putptr(void *ptr)
+{
+	int	offset;
+
+	offset = 0;
+	if (!ptr)
+	{
+		offset += ft_putstr("(nil)");
+		return (offset);
+	}
+	offset += ft_putstr("0x");
+	offset += ft_puthex((unsigned long int)ptr, 0);
+	return (offset);
+}
 
 int	ft_parse(const char *str, va_list ap)
 {
