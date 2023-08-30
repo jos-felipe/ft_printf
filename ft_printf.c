@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/30 12:25:15 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/30 12:40:29 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	ft_parse(const char *str, va_list ap)
 		offset = ft_puthex(va_arg(ap, unsigned int), 1);
 	else if (*str == 'p')
 		offset = ft_putptr(va_arg(ap, void *));
-	// else if (str == '%')
-	// 	ft_putchar('%');
+	else if (*str == '%')
+		offset = ft_putchar('%');
 	return (offset);
 }
 

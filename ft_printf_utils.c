@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/30 12:34:42 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/30 12:46:35 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	ft_putstr(char *str)
 
 	offset = 0;
 	if (!str)
-		return (-1);
+	{
+		offset += ft_putstr("(null)");
+		return (offset);
+	}
 	while (*str)
 		offset += ft_putchar(*str++);
 	return (offset);
@@ -94,6 +97,11 @@ int	ft_putptr(void *ptr)
 	int	offset;
 
 	offset = 0;
+	if (!ptr)
+	{
+		offset += ft_putstr("(nil)");
+		return (offset);
+	}
 	offset += ft_putstr("0x");
 	offset += ft_puthex((unsigned long int)ptr, 0);
 	return (offset);
