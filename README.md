@@ -30,3 +30,9 @@ You will mainly learn how to use variadic arguments.
 > - `%x` print a number in hexadecimal (base 16).
 > - `%X` print a number in upper case hexadecimal (base 16).
 > - `%%` print a percent sign.</i>
+
+### How to test
+
+```shell
+gcc -Wall -Werror -Wextra ft_printf_bonus.c ft_printf_utils_bonus.c main.c && ./a.out
+```
