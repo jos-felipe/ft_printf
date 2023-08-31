@@ -45,12 +45,5 @@ Manage all the following flags:
 | Flag  | Description 															 			|
 |-------|-----------------------------------------------------------------------------------|
 | **#** | Prefix the string "0x" or "0X" for x and X conversions.							|
-|**' '**| (a space) A blank should be left before a positive number (or empty string) produced by a signed conversion.												|
-| **p** | Pointer location converted to hexadecimal value									|
-| **d** | Decimal number 																	|
-| **i** | Integer in decimal base                 											|
-| **u** | Unsigned integer in decimal base                									|
-| **x** | Unsigned number printed in lowercase hexadecimal base                				|
-| **X** | Unsigned number printed in uppercase hexadecimal base                				|
-| **%** | The '%' ascii character                 											|
-| **o** | Unsigned number printed in octal base                 							|
+|**' '**| (a space) A blank should be left before a positive number (or empty string) produced by a signed conversion.																					|
+| **+** | A sign (+ or -) should always be placed before a number produced by a signed conversion. By default, a sign is used only for negative numbers. A + overrides a space if both are used.																						|

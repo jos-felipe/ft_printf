@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/31 12:08:02 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/31 13:48:52 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,11 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			while (*str == '#' || *str == ' ')
+			while (*str == '#' || *str == ' ' || *str == '+')
 			{
-				prefix_flag = 1;
+				prefix_flag = ' ';
+				if (*str == '+')
+					prefix_flag = '+';
 				str++;
 			}
 			printed += ft_parse(str, ap, prefix_flag);

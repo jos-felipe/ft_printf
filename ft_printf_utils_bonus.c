@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/31 12:06:58 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/31 13:49:35 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_putnbr(int n, int prefix_flag)
 	offset = 0;
 	nbr = (long int)n;
 	if (prefix_flag && nbr > 0)
-		offset += ft_putchar(' ');
+		offset += ft_putchar((char)prefix_flag);
 	if (n < 0)
 	{
 		nbr *= -1;
