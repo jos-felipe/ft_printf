@@ -45,5 +45,5 @@ Manage all the following flags:
 | Flag  | Description 															 			|
 |-------|-----------------------------------------------------------------------------------|
 | **#** | Prefix the string "0x" or "0X" for x and X conversions.							|
-|**' '**| (a space) A blank should be left before a positive number (or empty string) produced by a signed conversion.																					|
-| **+** | A sign (+ or -) should always be placed before a number produced by a signed conversion. By default, a sign is used only for negative numbers. A + overrides a space if both are used.																						|
+|**' '**| Add a single space (' ') in the front of positive numeric conversions.																					|
+| **+** | Add a plus sign ('+') in the front of positive numeric conversions																				|
