@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/31 11:00:57 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/08/31 12:08:02 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_parse(const char *str, va_list ap, int prefix_flag)
 	else if (*str == 's')
 		offset = ft_putstr(va_arg(ap, char *));
 	else if (*str == 'd' || *str == 'i')
-		offset = ft_putnbr(va_arg(ap, int));
+		offset = ft_putnbr(va_arg(ap, int), prefix_flag);
 	else if (*str == 'u')
 		offset = ft_putunbr(va_arg(ap, unsigned int));
 	else if (*str == 'x')
@@ -67,7 +67,7 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			if (*str == '#')
+			while (*str == '#' || *str == ' ')
 			{
 				prefix_flag = 1;
 				str++;

@@ -17,7 +17,7 @@ You will mainly learn how to use variadic arguments.
 > 5. It will be compared with the real printf
 > 6. You must use the command ar to create your librairy, using the command libtool is forbidden.
 
-### Mandatory
+### Mandatory part
 
 > <i>A small description of the required conversion:
 >
@@ -36,3 +36,21 @@ You will mainly learn how to use variadic arguments.
 ```shell
 gcc -Wall -Werror -Wextra ft_printf_bonus.c ft_printf_utils_bonus.c main.c && ./a.out
 ```
+
+### Bonus part
+
+Manage all the following flags:
+
+
+| Flag  | Description 															 			|
+|-------|-----------------------------------------------------------------------------------|
+| **#** | Prefix the string "0x" or "0X" for x and X conversions.							|
+|**' '**| (a space) A blank should be left before a positive number (or empty string) produced by a signed conversion.												|
+| **p** | Pointer location converted to hexadecimal value									|
+| **d** | Decimal number 																	|
+| **i** | Integer in decimal base                 											|
+| **u** | Unsigned integer in decimal base                									|
+| **x** | Unsigned number printed in lowercase hexadecimal base                				|
+| **X** | Unsigned number printed in uppercase hexadecimal base                				|
+| **%** | The '%' ascii character                 											|
+| **o** | Unsigned number printed in octal base                 							|
