@@ -1,18 +1,20 @@
-# .github/workflows/norminette.yml
 name: norminette
-on: [push, pull_request]
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
 
 jobs:
   norminette_job:
     runs-on: ubuntu-latest
     name: norminette
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: alexandregv/norminette-action@v3
       with:
         flags: "ft_printf.c             \
                 ft_printf_utils.c       \
-                ft_printf_bonus.c       \
-                ft_printf_utils_bonus.c \
-                ft_printf.h             \
-                ft_printf_bonus.h"
+                ft_printf.h"

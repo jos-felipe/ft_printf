@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/30 14:28:17 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/09/01 18:20:22 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int	ft_putptr(void *ptr)
 		return (offset);
 	}
 	offset += ft_putstr("0x");
-	offset += ft_puthex((unsigned long int)ptr, 0);
+	offset += ft_puthex((unsigned long int)ptr, 0, 0);
 	return (offset);
 }
 
-int	ft_parse(const char *str, va_list ap)
+int	ft_parse(const char *str, va_list ap, int prefix_flag)
 {
 	int	offset;
 
@@ -37,13 +37,13 @@ int	ft_parse(const char *str, va_list ap)
 	else if (*str == 's')
 		offset = ft_putstr(va_arg(ap, char *));
 	else if (*str == 'd' || *str == 'i')
-		offset = ft_putnbr(va_arg(ap, int));
+		offset = ft_putnbr(va_arg(ap, int), prefix_flag);
 	else if (*str == 'u')
 		offset = ft_putunbr(va_arg(ap, unsigned int));
 	else if (*str == 'x')
-		offset = ft_puthex(va_arg(ap, unsigned int), 0);
+		offset = ft_puthex(va_arg(ap, unsigned int), 0, prefix_flag);
 	else if (*str == 'X')
-		offset = ft_puthex(va_arg(ap, unsigned int), 1);
+		offset = ft_puthex(va_arg(ap, unsigned int), 1, prefix_flag);
 	else if (*str == 'p')
 		offset = ft_putptr(va_arg(ap, void *));
 	else if (*str == '%')
@@ -51,24 +51,40 @@ int	ft_parse(const char *str, va_list ap)
 	return (offset);
 }
 
+int	ft_prefix(const char *str)
+{
+	int	prefix_flag;
+
+	prefix_flag = 0;
+	if (*str != '+')
+		prefix_flag = ' ';
+	else
+		prefix_flag = '+';
+	return (prefix_flag);
+}
+
 int	ft_printf(const char *str, ...)
 {
 	int		printed;
-	int		offset;
+	int		prefix_flag;
 	va_list	ap;
 
 	if (!str)
 		return (-1);
 	va_start(ap, str);
 	printed = 0;
-	offset = 0;
+	prefix_flag = 0;
 	while (*str)
 	{
 		if (*str == '%')
-			offset = ft_parse(++str, ap);
+		{
+			str++;
+			while (*str == '#' || *str == ' ' || *str == '+')
+				prefix_flag = ft_prefix(str++);
+			printed += ft_parse(str, ap, prefix_flag);
+		}
 		else
-			offset = ft_putchar(*str);
-		printed += offset;
+			printed += ft_putchar(*str);
 		str++;
 	}
 	va_end(ap);

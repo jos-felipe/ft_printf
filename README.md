@@ -4,20 +4,13 @@ that will mimic the real printf
 
 ## Summary 
 
-This project is pretty straight forward. You will recode printf. Hopefully you
-will be able to reuse it in future projects without the fear of being flagged as a cheater.
-You will mainly learn how to use variadic arguments.
+The printf() function produces output according to a format as described below.
+It writes output to stdout - the standard output stream. The overall syntax of a conversion specification is:
 
-### Requirements
+           %[$][flags][width][.precision][length modifier]conversion
 
-> 1. The prototype of ft_printf should be int ft_printf(const char *, ...);
-> 2. You have to recode the libc’s printf function;
-> 3. It must not do the buffer management like the real printf;
-> 4. It will manage the following conversions: cspdiuxX%;
-> 5. It will be compared with the real printf
-> 6. You must use the command ar to create your librairy, using the command libtool is forbidden.
 
-### Mandatory
+### Mandatory part
 
 > <i>A small description of the required conversion:
 >
@@ -30,3 +23,20 @@ You will mainly learn how to use variadic arguments.
 > - `%x` print a number in hexadecimal (base 16).
 > - `%X` print a number in upper case hexadecimal (base 16).
 > - `%%` print a percent sign.</i>
+
+### Bonus part
+
+Manage all the following flags:
+
+
+| Flag  | Description 															 			|
+|-------|-----------------------------------------------------------------------------------|
+| **#** | Prefix the string "0x" or "0X" for x and X conversions.							|
+|**' '**| Add a single space (' ') in the front of positive numeric conversions.																					|
+| **+** | Add a plus sign ('+') in the front of positive numeric conversions
+
+### How to test
+
+```shell
+cc -Wall -Werror -Wextra ft_printf.c ft_printf_utils.c tester.c &>2 && ./a.out
+```

@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Unit Tests
 
 on:
   push:
@@ -7,11 +7,11 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: make
-      run: make re && make bonus && make fclean
+    - name: tester
+      run: cc ft_printf.c ft_printf_utils.c tester.c 2>/dev/null && ./a.out

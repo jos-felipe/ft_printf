@@ -10,8 +10,8 @@
 				"-Wextra",
 				"-Werror",
 				"-g",
-                "ft_printf.c", 
-				"ft_printf_utils.c",
+                "ft_printf_bonus.c", 
+				"ft_printf_utils_bonus.c",
 				"main.c",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.out"
