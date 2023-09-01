@@ -8,7 +8,7 @@
                 "-fdiagnostics-color=always",
 				"-Wall",
 				"-Wextra",
-				"-Werror",
+				// "-Werror",
 				"-g",
                 "ft_printf_bonus.c", 
 				"ft_printf_utils_bonus.c",

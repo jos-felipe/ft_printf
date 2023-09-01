@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/08/31 13:48:52 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/09/01 15:51:56 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include "ft_printf.h"
 
 int	ft_putptr(void *ptr)
 {
@@ -69,8 +69,9 @@ int	ft_printf(const char *str, ...)
 			str++;
 			while (*str == '#' || *str == ' ' || *str == '+')
 			{
-				prefix_flag = ' ';
-				if (*str == '+')
+				if (*str != '+')
+					prefix_flag = ' ';
+				else
 					prefix_flag = '+';
 				str++;
 			}
