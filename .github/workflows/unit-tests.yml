@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: tester
-      run: cc ft_printf.c ft_printf_utils.c tester.c && ./a.out
+      run: cc ft_printf.c ft_printf_utils.c tester.c 2>/dev/null && ./a.out
