@@ -17,4 +17,4 @@ jobs:
       with:
         flags: "ft_printf.c             \
                 ft_printf_utils.c       \
-                ft_printf.h             \
+                ft_printf.h"
