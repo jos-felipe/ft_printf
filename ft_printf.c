@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:53:31 by josfelip          #+#    #+#             */
-/*   Updated: 2023/09/01 17:51:54 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/09/01 18:20:22 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,18 @@ int	ft_parse(const char *str, va_list ap, int prefix_flag)
 	return (offset);
 }
 
+int	ft_prefix(const char *str)
+{
+	int	prefix_flag;
+
+	prefix_flag = 0;
+	if (*str != '+')
+		prefix_flag = ' ';
+	else
+		prefix_flag = '+';
+	return (prefix_flag);
+}
+
 int	ft_printf(const char *str, ...)
 {
 	int		printed;
@@ -68,13 +80,7 @@ int	ft_printf(const char *str, ...)
 		{
 			str++;
 			while (*str == '#' || *str == ' ' || *str == '+')
-			{
-				if (*str != '+')
-					prefix_flag = ' ';
-				else
-					prefix_flag = '+';
-				str++;
-			}
+				prefix_flag = ft_prefix(str++);
 			printed += ft_parse(str, ap, prefix_flag);
 		}
 		else

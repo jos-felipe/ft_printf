@@ -38,5 +38,5 @@ Manage all the following flags:
 ### How to test
 
 ```shell
-cc -Wall -Werror -Wextra ft_printf.c ft_printf_utils.c main.c &>2 && ./a.out
+cc -Wall -Werror -Wextra ft_printf.c ft_printf_utils.c tester.c &>2 && ./a.out
 ```

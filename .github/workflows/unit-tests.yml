@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Unit Tests
 
 on:
   push:
@@ -13,9 +13,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: make re
-      run: make re
-      name: make bonus
-      run: make bonus
-      name: make fclean
-      run: make fclean
+    - name: tester
+      run: cc -Wall -Werror -Wextra ft_printf.c ft_printf_utils.c tester.c && ./a.out
