@@ -6,7 +6,7 @@
 /*   By: josfelip <josfelip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:03:34 by josfelip          #+#    #+#             */
-/*   Updated: 2023/09/04 09:09:32 by josfelip         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:24:14 by josfelip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,44 @@
 
 int	main(void)
 {
-	// Mandatory part
-	char 	c = '!';
-	char 	*str = "Now I can print strings";
-	int		nbr = 42;
+	char *str = NULL;
+    char *str2 = "Hello, World! =)";
+    char c = 'H';
+    int num = 0;
+    int num2 = 10;
+    int num3 = 14;
+    int num4 = 1998;
+    int num5 = 'G';
 
-	assert(ft_printf("") == printf(""));
-	assert(ft_printf(NULL) == printf(NULL));
-	assert(ft_printf("Hello World%c\n", '!') == printf("Hello World%c\n", '!'));
-	assert(ft_printf("%s%c\n", str, c) == printf("%s%c\n", str, c));
-	str = NULL;
-	assert(ft_printf("%s\n", str) == printf("%s\n", str));
-	assert(ft_printf("%i | %d\n", nbr, -nbr) == printf("%i | %d\n", nbr, -nbr));
-	assert(ft_printf("%u | %u\n", nbr, -nbr) == printf("%u | %u\n", nbr, -nbr));
-	assert(ft_printf("%x | %X\n", nbr, nbr) == printf("%x | %X\n", nbr, nbr));
-	assert(ft_printf("%p\n", &nbr) == printf("%p\n", &nbr));
-	assert(ft_printf("%p\n", NULL) == printf("%p\n", NULL));
-	assert(ft_printf("%%\n") == printf("%%\n"));
+    ft_printf("QUE INICIEM OS TESTES\n\n");
+
+    ft_printf("Char: %c\n", c);
+    printf("Original: %c\n\n", c);
+
+    ft_printf("String: %s, %s\n",str, str2);
+    printf("Original: %s, %s\n\n",str, str2);
+
+    printf("\nBonus - Plus & Space - Integer\n");
+	assert(	ft_printf("T: % +d, %+ d, % d, % d\n", num, num2, num3, num4)\
+			== printf("R: % +d, %+ d, % d, % d\n", num, num2, num3, num4));
 	
-	// Bonus part
-	nbr = 42;
-	str = "\0";
-	assert(ft_printf("%#x | %#X\n", nbr, nbr) == printf("%#x | %#X\n", nbr, nbr));
-	assert(ft_printf("%##x | %##X\n", nbr, nbr) == printf("%##x | %##X\n", nbr, nbr));
-	assert(ft_printf("% i\n", nbr) == printf("% i\n", nbr));
-	assert(ft_printf("% i\n", -nbr) == printf("% i\n", -nbr));
-	assert(ft_printf("%+i\n", nbr) == printf("%+i\n", nbr));
-	nbr = 0;
-	assert(ft_printf("%#x | %#X\n", nbr, nbr) == printf("%#x | %#X\n", nbr, nbr));
-	assert(ft_printf("_%s_\n", "") == printf("_%s_\n", ""));
-	assert(ft_printf("_% s_\n", "") == printf("_% s_\n", ""));
-	printf("all tests passed\n");
-	return (0);
+    ft_printf("Unsigned: %u, %u, %u, %u\n", num, num2, num3, num4);
+    printf("Original: %u, %u, %u, %u\n\n", num, num2, num3, num4);
+
+    ft_printf("HEX_LOW: %x, %x, %x, %x\n", num2, str, num4, str2);
+    printf("Original: %x, %x, %x, %x\n\n", num2, str, num4, str2);
+
+    ft_printf("HEX_LOW: %#X, %#X, %X, %X\n", num2, str, num4, str2);
+    printf("Original: %#X, %#X, %X, %X\n\n", num2, str, num4, str2);
+
+    ft_printf("Percent: %%\n");
+    printf("Original: %%\n\n");
+
+    ft_printf ("Endereço: %p, %p, %p, %p, %p\n", num, num3, num4, str, str2);
+    printf ("Original: %p, %p, %p, %p, %p\n", num, num3, num4, str, str2);
+
+    ft_printf ("%d, %d, %d, %d, %d\n", 25, 25, 25, 25, 25);
+    printf ("%d, %d, %d, %d, %d\n", 25, 25, 25, 25, 25);
+
+    return (0);
 }
