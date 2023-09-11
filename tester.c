@@ -31,7 +31,7 @@ int	main(void)
 	== printf("R: %c, %s, %p, %d, %i, %u, %x, %X, %%\n", c, s, s, d, i, u, -x, X));
 
 	printf("\nMandatory - Limits \n");
-	assert(printf("%p\n", NULL) == printf("%p\n", NULL));
+	assert(ft_printf("%p\n", NULL) == printf("%p\n", NULL));
 	assert(ft_printf("") == printf(""));
 	assert(ft_printf(NULL) == printf(NULL));
 			
